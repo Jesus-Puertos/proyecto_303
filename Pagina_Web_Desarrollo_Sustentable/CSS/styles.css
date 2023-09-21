@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+
+:root {
+  --colorFooter: #c38be4;
+  --colorBtn: #e1cbd7;
+  --colorNegro: #000000;
+  --colorblanco: #fff;
+  --colorsecundario: #094b65;
+  --colorIcono: #fdc21c;
+  --colorAzulfuerte: #0d2033;
+  --titulo: "Rancho", cursive;
+  --span: "JetBrains Mono", monospace;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono", monospace;
+}
+body {
+  font-size: 16px; /* 1rem =10px*/
+  overflow-x: hidden;
+  background: var(--colorblanco);
+  min-height: 100vh;
+}
+
+/*Navegación*/
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000000;
+}
+
+.header .logo {
+  color: var(--colorIcono);
+  text-decoration: none;
+}
+
+.header .logo h2 {
+  position: relative;
+  font-size: 2.3rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.header .logo h2 span {
+  color: #555;
+  transition: 0.25s;
+}
+.header .logo h2:hover span {
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0, 0 0 15px #0f0f, 0 0 30px #0f0;
+}
+
+.header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header ul li {
+  list-style: none;
+  margin-left: 2rem;
+}
+
+.header ul li a {
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  color: var(--colorsecundario);
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.header ul li a:hover,
+.header ul li a.activo {
+  background: var(--colorsecundario);
+  color: var(--colorblanco);
+}
+
+/*Estilos de switch*/
+.switch {
+  width: 6rem;
+  height: 3rem;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 10rem;
+  border: #333 solid 0.2rem;
+  background-color: #132b41;
+}
+
+.switch i {
+  font-size: 1rem;
+  color: var(--colorIcono);
+}
+/*Ultimo hijo del listado li*/
+.menu-options li:last-child::before {
+  content: "";
+  position: absolute;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background-color: var(--colorblanco);
+  border: solid thin #000;
+  left: 0;
+  right: unset;
+}
+.menu-options li:last-child.active::before {
+  right: 0;
+  left: unset;
+  border: solid thin #fff;
+}
+
+.menu-options li:last-child.active i:first-child {
+  color: var(--colorblanco);
+}
+
+.menu-options li:last-child.active {
+  background-color: chocolate;
+  border: solid 0.2rem #fff;
+}
+
+/*modo oscuro en body*/
+body.active header {
+  background-color: var(--colorNegro);
+}
+body.active header ul {
+  background-color: var(--colorNegro);
+}
+
+body.active header ul li a {
+  color: var(--colorblanco);
+}
+
+body.active section {
+  background-color: var(--colorIcono);
+}
+
+body.active section h1.titulo {
+  color: var(--colorblanco);
+}
+
+/*Sección */
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10rem;
+  background: linear-gradient(to top, var(--colorsecundario), transparent);
+  z-index: 10;
+}
+/*fondo*/
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+section .titulo {
+  position: absolute;
+  color: var(--colorsecundario);
+  font-size: 12rem;
+  text-align: center;
+  line-height: 6rem;
+  font-family: var(--titulo);
+}
+
+section .titulo span {
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+  font-weight: 500;
+  font-family: var(--span);
+}
+.btn_explora {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  background-color: #e1cbd7;
+  color: var(--colorsecundario);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  border-radius: 4rem;
+  transform: translateY(10rem);
+}
+
+/*seccion 2*/
+.sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  padding: 10rem;
+  background-color: var(--colorblanco);
+}
+
+.sec h2 {
+  font-size: 4rem;
+  color: var(--colorAzulfuerte);
+  margin-bottom: 1rem;
+}
+
+.sec p {
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  line-height: 2;
+  color: var(--colorblanco);
+}
+
+/*Footer*/
+
+.pie-pagina {
+  width: 100%;
+  background-color: var(--colorFooter);
+}
+
+.pie-pagina .grupo-1 {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  margin: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pie-pagina .grupo-1 figure img {
+  width: 250px;
+}
+.pie-pagina .grupo-1 .box h2 {
+  color: #fff;
+  margin-bottom: 25px;
+  font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p {
+  color: #efefef;
+  margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+  display: inline-block;
+  text-decoration: none;
+  width: 45px;
+  line-height: 45px;
+  color: #fff;
+  margin-right: 10px;
+  background-color: var(--colorsecundario);
+  text-align: center;
+  transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+  color: red;
+}
+
+.pie-pagina .grupo-2 {
+  background-color: var(--colorsecundario);
+  padding: 15px 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.pie-pagina .grupo-2 small {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  .pie-pagina .grupo-1 {
+    width: 90%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    margin: 35px 0px;
+  }
+}
