@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
-
 :root {
   --colorFooter: #c38be4;
   --colorBtn: #e1cbd7;
@@ -83,6 +81,8 @@ body {
 }
 
 .header ul li a {
+  text-align: center;
+  display: block;
   text-decoration: none;
   padding: 0.6rem 1.5rem;
   color: var(--colorsecundario);
@@ -141,6 +141,18 @@ body {
   border: solid 0.2rem #fff;
 }
 
+@media screen and (max-width: 768px) {
+  .header {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    display: none;
+  }
+}
+
 /*modo oscuro en body*/
 body.active header {
   background-color: var(--colorNegro);
@@ -153,103 +165,76 @@ body.active header ul li a {
   color: var(--colorblanco);
 }
 
-body.active section {
-  background-color: var(--colorIcono);
-}
-
-body.active section h1.titulo {
-  color: var(--colorblanco);
-}
-
-body.active .sec {
-  background-color: var(--colorNegro);
-}
-body.active .sec h2 {
-  color: var(--colorblanco);
-}
-
-/*Sección */
-
-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-section::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 10rem;
-  background: linear-gradient(to top, var(--colorsecundario), transparent);
-  z-index: 10;
-}
-/*fondo*/
-section img {
-  position: absolute;
-  top: 0;
-  left: 0;
+/*Blog*/
+section .blog {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  pointer-events: none;
+  letter-spacing: 3rem;
+  line-height: 1.6;
 }
-section .titulo {
-  position: absolute;
-  color: var(--colorsecundario);
-  font-size: 12rem;
+
+.blog .title {
   text-align: center;
-  line-height: 6rem;
-  font-family: var(--titulo);
+  font-size: 3rem;
+  color: var(--colorNegro);
+  margin-top: 15rem;
+  font-weight: 100;
 }
-
-section .titulo span {
-  font-size: 2rem;
-  letter-spacing: 0.3rem;
-  font-weight: 500;
-  font-family: var(--span);
-}
-.btn_explora {
-  text-decoration: none;
-  display: inline-block;
-  padding: 0.8rem 3rem;
-  background-color: #e1cbd7;
-  color: var(--colorsecundario);
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.2rem;
-  border-radius: 4rem;
-  transform: translateY(10rem);
-}
-
-/*seccion 2*/
-.sec {
+.tres-columnas {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  position: relative;
-  height: 100vh;
-  padding: 10rem;
-  background-color: var(--colorblanco);
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .tres-columnas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+.container {
+  width: 100%;
+  max-width: 120rem;
+  height: 43rem;
+  margin: auto;
 }
 
-.sec h2 {
-  font-size: 4rem;
-  color: var(--colorAzulfuerte);
-  margin-bottom: 1rem;
+.container .card {
+  width: 33rem;
+  height: 43rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin: 2rem;
+  text-align: center;
+  transition: all 0.25s;
+}
+.container .card:hover {
+  transform: translateY(-1.5rem);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.container .card img {
+  width: 33rem;
+  height: 22rem;
 }
 
-.sec p {
+.container .card h4 {
+  font-weight: 600;
+}
+
+.container .card p {
+  padding: 0 1rem;
   font-size: 1.2rem;
-  letter-spacing: 0.1rem;
-  line-height: 2;
-  color: var(--colorblanco);
+  font-weight: 300;
 }
 
+.container .card a {
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--colorsecundario);
+}
 /*Footer*/
 
 .pie-pagina {
